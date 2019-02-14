@@ -1,4 +1,6 @@
 # data source: https://samples.openweathermap.org/data/2.5/forecast/daily?id=524901&appid=b1b15e88fa797225412429c1c50c122a1
+# CORS explanation: https://jonhilton.net/cross-origin-request-blocked/
+# server code: https://stackoverflow.com/questions/21956683/enable-access-control-on-simple-http-server
 from http.server import HTTPServer, SimpleHTTPRequestHandler, test
 import sys
 
