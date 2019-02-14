@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 // Service 
 import { EnergyService } from '../energy.service';
-import { deflateSync } from 'zlib';
+//import { deflateSync } from 'zlib';
 
 // Chart
 import { Chart } from 'chart.js';
@@ -33,20 +33,33 @@ export class PlotComponent implements OnInit {
           datesFmt.push(dateFmt.toLocaleTimeString('en', { year: 'numeric', month: 'short', day: 'numeric'}))
         });
 
-        this.chart = new Chart('canvas', {
+        console.log(temps_min);
+
+
+          
+
+
+
+
+
+          
+        var chartConfig = {
+        // this.chart = new Chart('canvas', {
           type: 'line',
           data: {
-            lables: datesFmt,
+            labels: datesFmt,  //['January', 'February', 'March', 'April', 'May', 'June', 'July'],
             datasets: [
               {
-                data: temps_max,
-                borderColor: '#3cba9f',
-                fill: false
+                label: 'My First dataset',
+                borderColor: '#ffcc00',
+                data: temps_min, 
+                fill: false,
               },
               {
-                data: temps_min,
-                borderColor: '#ffcc00',
-                fill: false
+                label: 'My Secocnd dataset',
+                borderColor: '#3cba9f',
+                data: temps_max, 
+                fill: false,
               },
             ]
           },
@@ -56,22 +69,141 @@ export class PlotComponent implements OnInit {
             },
             scales: {
               xAxes: [{
-                display: true
+                display: true,
+                scaleLabel: {
+                  display: true,
+                  labelString: 'Month'
+                }
               }],
               yAxes: [{
-                display: true
+                display: true,
+                scaleLabel: {
+                  display: true,
+                  labelString: 'Value'
+                }
               }]
-            }
+            },
           }
-        })
+        // });
+        };
+
+        this.chart = new Chart('canvas', chartConfig);
 
 
-        console.log(temps_min);
-        console.log(temps_max);
-        console.log(dates);
-        console.log(datesFmt);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          // Snippet for Labels and Stuff
+          // options: {
+          //   responsive: true,
+          //   title: {
+          //     display: true,
+          //     text: 'Chart.js Line Chart'
+          //   },
+          //   tooltips: {
+          //     mode: 'index',
+          //     intersect: false,
+          //   },
+          //   hover: {
+          //     mode: 'nearest',
+          //     intersect: true
+          //   },
+          //   scales: {
+          //     xAxes: [{
+          //       display: true,
+          //       scaleLabel: {
+          //         display: true,
+          //         labelString: 'Time'
+          //       }
+          //     }],
+          //     yAxes: [{
+          //       display: true,
+          //       scaleLabel: {
+          //         display: true,
+          //         labelString: 'Value'
+          //       }
+          //     }]
+          //   }
+          // }
+
+                  // Not sure why this didnt work, get rid of it tbh
+        // this.chart = new Chart('canvas', {
+        //   type: 'line',
+        //   // type: 'scatter',
+        //   data: {
+        //     // lables: datesFmt,
+        //     lables: [1,2,3],
+        //     datasets: [
+        //       {
+        //         // data: temps_max,
+        //         data: [1, 2, 3],
+        //         borderColor: '#3cba9f',
+        //         fill: false
+        //       },
+        //       // {
+        //       //   data: temps_min,
+        //       //   borderColor: '#ffcc00',
+        //       //   fill: false
+        //       // },
+        //     ]
+        //   },
+        //   options: {
+        //     legend: {
+        //       display: false
+        //     },
+        //     scales: {
+        //       xAxes: [{
+        //         display: true,
+        //         scaleLabel: {
+        //           display: true,
+        //           labelString: 'Month'
+        //         }
+        //       }],
+        //       yAxes: [{
+        //         display: true,
+        //         scaleLabel: {
+        //           display: true,
+        //           labelString: 'Value'
+        //         }
+        //       }]
+        //     },
+        //     // scales: {
+        //     //   xAxes: [{
+        //     //     display: true
+        //     //   }],
+        //     //   yAxes: [{
+        //     //     display: true
+        //     //   }]
+        //     // }
+        //   }
+        // })
       })
-
   }
-
 }
