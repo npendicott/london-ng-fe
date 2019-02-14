@@ -3,15 +3,17 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 // Service
-import { EnergyService } from './energy.service';
+import { EnergyService } from './services/energy.service';
 
 import { AppComponent } from './app.component';
-import { PlotComponent } from './plot/plot.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { SeriesPlotComponent } from './plots/series-plot/series-plot.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PlotComponent
+    NavbarComponent,
+    SeriesPlotComponent
   ],
   imports: [
     BrowserModule,
