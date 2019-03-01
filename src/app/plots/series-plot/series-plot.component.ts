@@ -27,7 +27,7 @@ export class SeriesPlotComponent implements OnInit {
   // MAC004431
   // MAC004387
   ngOnInit() {
-    this._energy.getReading("MAC005492", "2012-04-12 10:30:00.0000000", "2012-05-12 10:30:00.0000000")
+    this._energy.getReading("MAC000246", "2012-04-12 10:30:00.0000000", "2012-05-12 10:30:00.0000000")
       .subscribe( res => {
         // console.log(res);
       
