@@ -14,12 +14,19 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class EnergyService {
+  // Local
+  // energyUrl: string = "http://dns.or.ip.here:9090/readings/daily";
+  // energyUrl: string = "http://localhost:9090/readings/daily";
+  energyUrl: string = "http://192.168.0.24:9090/readings/daily";
+
+
+
 
   // TODO: Schema
   // TODO: Why is this declared out here, not in getReading?
   // res: Observable<EnergyResponse>;
   res: any;
-
+  
   constructor(private _http: HttpClient) { }
 
   getReading(macId: string, startDate: string, endDate: string){
@@ -33,6 +40,7 @@ export class EnergyService {
       .set('end', endDate);
 
     // TODO: Config filez
+    // 
     this.res = this._http.get("http://localhost:9090/readings/daily", { 
     // this.res = this._http.get("http://dns.or.ip.here:9090/readings/daily", { 
         params, 
