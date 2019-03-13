@@ -41,8 +41,7 @@ export class EnergyService {
 
     // TODO: Config filez
     // 
-    this.res = this._http.get("http://localhost:9090/readings/daily", { 
-    // this.res = this._http.get("http://dns.or.ip.here:9090/readings/daily", { 
+    this.res = this._http.get(this.energyUrl, { 
         params, 
         headers,
       })
